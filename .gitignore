@@ -10,3 +10,6 @@ data/processed/
 
 # Claude가 먼저 만들어 둔 참고용 작업물
 _reference/
+
+# 교수님 제공 스크래치 노트북 (배포 금지 자료)
+notebooks/30-ESSHealth-scratch.ipynb*
