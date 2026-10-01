@@ -13,3 +13,6 @@ _reference/
 
 # 교수님 제공 스크래치 노트북 (배포 금지 자료)
 notebooks/30-ESSHealth-scratch.ipynb*
+
+# DAY 1 제출용 보고서 (개인 정보 포함, Slack으로 제출)
+results/design/
