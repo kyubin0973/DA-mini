@@ -4,7 +4,7 @@
 
 ## 원본 파일
 
-MIT-Stanford Battery Dataset (Severson et al., Nature Energy 2019). 배포처: https://data.matr.io/1
+MIT-Stanford Battery Dataset (Severson et al., Nature Energy 2019). 과제에서 지정한 배포처: https://www.kaggle.com/datasets/itshpark/data-driven-prediction-of-battery-cycle
 
 | 역할 | 파일 | 크기 | 전체 셀 |
 |---|---|---:|---:|
