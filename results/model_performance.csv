@@ -1,0 +1,7 @@
+구분,MAPE(%)
+Train (CV),9.46
+Valid (Hold-out),8.71
+Test (Batch 2),26.66
+Gap (Train - Valid),0.75
+Gap (Valid - Test),-17.96
+Gap (Target - Test),-17.56

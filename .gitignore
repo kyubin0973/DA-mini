@@ -1,18 +1,21 @@
-# 환경
+# Python
 .venv/
 __pycache__/
+*.py[cod]
 .ipynb_checkpoints/
+.env
+
+# OS / 편집기
 .DS_Store
+.vscode/
+.idea/
+.claude/
 
-# 데이터 (원본 7.8GB, 가공 캐시)
-data/*.mat
-data/processed/
+# 데이터 (원본 .mat 약 7.8GB, 가공 캐시) — data/README.md만 올린다
+data/*
+!data/README.md
 
-# Claude가 먼저 만들어 둔 참고용 작업물
+# 저장소에 올리지 않는 개인 작업물
 _reference/
-
-# 교수님 제공 스크래치 노트북 (배포 금지 자료)
 notebooks/30-ESSHealth-scratch.ipynb*
-
-# DAY 1 제출용 보고서 (개인 정보 포함, Slack으로 제출)
 results/design/
