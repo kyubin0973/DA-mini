@@ -88,20 +88,25 @@ def run(proc_dir='data/processed', result_dir='results'):
 
     v = evaluate(valid, final, FINAL_COLS)[1]
     t = evaluate(b2, final, FINAL_COLS)[1]
+    t3 = evaluate(b3, final, FINAL_COLS)[1]
+    # 과제의 보고 형식 (Regression, Batch 3 포함). Gap은 표기한 순서대로 뺀 값이다.
     perf = pd.DataFrame([
-        {'구분': 'Train (CV)', 'MAPE(%)': cv},
-        {'구분': 'Valid (Hold-out)', 'MAPE(%)': v['MAPE']},
+        {'구분': 'Train (Batch 1 CV)', 'MAPE(%)': cv},
+        {'구분': 'Valid (Batch 1 Hold-out)', 'MAPE(%)': v['MAPE']},
         {'구분': 'Test (Batch 2)', 'MAPE(%)': t['MAPE']},
-        {'구분': 'Gap (Train - Valid)', 'MAPE(%)': cv - v['MAPE']},
-        {'구분': 'Gap (Valid - Test)', 'MAPE(%)': v['MAPE'] - t['MAPE']},
-        {'구분': 'Gap (Target - Test)', 'MAPE(%)': TARGET - t['MAPE']},
+        {'구분': 'Gap (Train-Valid)', 'MAPE(%)': cv - v['MAPE']},
+        {'구분': 'Gap (Valid-Test)', 'MAPE(%)': v['MAPE'] - t['MAPE']},
+        {'구분': 'Gap (Target-Test)', 'MAPE(%)': TARGET - t['MAPE']},
+        {'구분': 'Test (Batch 3)', 'MAPE(%)': t3['MAPE']},
+        {'구분': 'Gap (Batch2-Batch3)', 'MAPE(%)': t['MAPE'] - t3['MAPE']},
+        {'구분': 'Gap (Target-Test, Batch 3)', 'MAPE(%)': TARGET - t3['MAPE']},
     ]).round(2)
 
     by_group = pd.DataFrame({
         'Valid (Batch 1 Hold-out)': v,
         'Batch 2 일반': evaluate(b2[b2['group'] == 'Batch 2 일반'], final, FINAL_COLS)[1],
         'Batch 2 newstructure': evaluate(b2[b2['group'] == 'Batch 2 newstructure'], final, FINAL_COLS)[1],
-        'Batch 3': evaluate(b3, final, FINAL_COLS)[1],
+        'Batch 3': t3,
     }).T.round(2)
 
     os.makedirs(result_dir, exist_ok=True)
